@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Valentine Question</title>
+<title>Valentine</title>
 <style>
 body {
 font-family: Arial, sans-serif;
@@ -13,6 +13,12 @@ margin-top: 100px;
 h1 {
 font-size: 40px;
 color: #ff3366;
+}
+
+#message {
+font-size: 20px;
+margin: 20px;
+color: #444;
 }
 
 button {
@@ -39,26 +45,56 @@ position: absolute;
 <body>
 
 <h1>Will you be my Valentine? ❤️</h1>
+<div id="message">Choose wisely 😌</div>
 
 <button id="yesBtn" onclick="yesClicked()">Yes 💖</button>
 <button id="noBtn" onmouseover="moveNo()">No 😢</button>
 
 <script>
 let yesSize = 18;
+let noCount = 0;
+
+let messages = [
+"Are you sure? 😢",
+"Think again... 🥺",
+"Really sure??",
+"I’ll be very sad... 💔",
+"Last chance!",
+"You don’t really want to press No 😏",
+"Okay this is getting serious...",
+"The Yes button looks better, no?",
+"Why are you doing this to me 😭",
+"Just press Yes already ❤️"
+];
 
 function moveNo() {
 let x = Math.random() * window.innerWidth * 0.7;
 let y = Math.random() * window.innerHeight * 0.7;
-document.getElementById("noBtn").style.left = x + "px";
-document.getElementById("noBtn").style.top = y + "px";
+let noBtn = document.getElementById("noBtn");
+noBtn.style.left = x + "px";
+noBtn.style.top = y + "px";
 
-// Make YES bigger each time
-yesSize += 5;
+// Increase YES size
+yesSize += 6;
 document.getElementById("yesBtn").style.fontSize = yesSize + "px";
+
+// Change message
+if (noCount < messages.length) {
+document.getElementById("message").innerText = messages[noCount];
+noCount++;
+} else {
+document.getElementById("message").innerText = "You have no choice now 😌";
+}
 }
 
 function yesClicked() {
-document.body.innerHTML = "<h1 style='color:#ff3366; margin-top:100px;'>Yayyyy! ❤️ Best decision ever!</h1>";
+document.body.innerHTML = `
+<h1 style="color:#ff3366; margin-top:100px;">
+Yayyyy! ❤️<br><br>
+Best decision ever!<br>
+I was hoping you’d say yes 😊
+</h1>
+`;
 }
 </script>
 
