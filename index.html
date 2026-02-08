@@ -2,16 +2,36 @@
 <html>
 <head>
 <title>Valentine</title>
+
 <style>
 body {
 font-family: Arial, sans-serif;
 text-align: center;
-background-color: #ffe6eb;
+background: #ffe6eb;
 margin-top: 100px;
+overflow: hidden;
+}
+
+/* Floating hearts */
+.heart {
+position: fixed;
+bottom: -20px;
+font-size: 20px;
+animation: floatUp 6s linear infinite;
+opacity: 0.7;
+}
+
+@keyframes floatUp {
+from {
+transform: translateY(0);
+}
+to {
+transform: translateY(-110vh);
+}
 }
 
 h1 {
-font-size: 40px;
+font-size: 38px;
 color: #ff3366;
 }
 
@@ -57,25 +77,28 @@ let noCount = 0;
 let messages = [
 "Are you sure? 😢",
 "Think again... 🥺",
-"Really sure??",
-"I’ll be very sad... 💔",
-"Last chance!",
-"You don’t really want to press No 😏",
-"Okay this is getting serious...",
-"The Yes button looks better, no?",
-"Why are you doing this to me 😭",
-"Just press Yes already ❤️"
+"That didn’t feel right...",
+"I’m watching you 👀",
+"Why would you do this to me?",
+"This is getting awkward...",
+"The Yes button looks happier 🙂",
+"Just press Yes already!",
+"You’re running out of options 😏",
+"No is not really an option here",
+"Okay now you're just being difficult 😂",
+"Last warning!",
+"You belong on Team Yes ❤️"
 ];
 
 function moveNo() {
-let x = Math.random() * window.innerWidth * 0.7;
-let y = Math.random() * window.innerHeight * 0.7;
+let x = Math.random() * window.innerWidth * 0.8;
+let y = Math.random() * window.innerHeight * 0.8;
 let noBtn = document.getElementById("noBtn");
 noBtn.style.left = x + "px";
 noBtn.style.top = y + "px";
 
 // Increase YES size
-yesSize += 6;
+yesSize += 8;
 document.getElementById("yesBtn").style.fontSize = yesSize + "px";
 
 // Change message
@@ -87,12 +110,26 @@ document.getElementById("message").innerText = "You have no choice now 😌";
 }
 }
 
+// Floating hearts generator
+setInterval(() => {
+let heart = document.createElement("div");
+heart.className = "heart";
+heart.innerText = "❤️";
+heart.style.left = Math.random() * 100 + "vw";
+heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+document.body.appendChild(heart);
+
+setTimeout(() => {
+heart.remove();
+}, 6000);
+}, 500);
+
 function yesClicked() {
 document.body.innerHTML = `
 <h1 style="color:#ff3366; margin-top:100px;">
 Yayyyy! ❤️<br><br>
-Best decision ever!<br>
-I was hoping you’d say yes 😊
+I knew you’d choose this 😊<br>
+Best decision ever!
 </h1>
 `;
 }
