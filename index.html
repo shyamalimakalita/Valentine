@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Valentine Question</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+text-align: center;
+background-color: #ffe6eb;
+margin-top: 100px;
+}
+
+h1 {
+font-size: 40px;
+color: #ff3366;
+}
+
+button {
+padding: 15px 30px;
+font-size: 18px;
+border: none;
+border-radius: 10px;
+cursor: pointer;
+margin: 10px;
+}
+
+#yesBtn {
+background-color: #ff4d6d;
+color: white;
+}
+
+#noBtn {
+background-color: #cccccc;
+position: absolute;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Will you be my Valentine? ❤️</h1>
+
+<button id="yesBtn" onclick="yesClicked()">Yes 💖</button>
+<button id="noBtn" onmouseover="moveNo()">No 😢</button>
+
+<script>
+let yesSize = 18;
+
+function moveNo() {
+let x = Math.random() * window.innerWidth * 0.7;
+let y = Math.random() * window.innerHeight * 0.7;
+document.getElementById("noBtn").style.left = x + "px";
+document.getElementById("noBtn").style.top = y + "px";
+
+// Make YES bigger each time
+yesSize += 5;
+document.getElementById("yesBtn").style.fontSize = yesSize + "px";
+}
+
+function yesClicked() {
+document.body.innerHTML = "<h1 style='color:#ff3366; margin-top:100px;'>Yayyyy! ❤️ Best decision ever!</h1>";
+}
+</script>
+
+</body>
+</html>
