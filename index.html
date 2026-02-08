@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Valentine</title>
+<title>For Irteza</title>
 
 <style>
 body {
@@ -22,16 +22,12 @@ opacity: 0.7;
 }
 
 @keyframes floatUp {
-from {
-transform: translateY(0);
-}
-to {
-transform: translateY(-110vh);
-}
+from { transform: translateY(0); }
+to { transform: translateY(-110vh); }
 }
 
 h1 {
-font-size: 38px;
+font-size: 36px;
 color: #ff3366;
 }
 
@@ -64,8 +60,8 @@ position: absolute;
 
 <body>
 
-<h1>Will you be my Valentine? ❤️</h1>
-<div id="message">Choose wisely 😌</div>
+<h1>Irteza… will you be my Valentine? ❤️</h1>
+<div id="message">This is an important decision 😌</div>
 
 <button id="yesBtn" onclick="yesClicked()">Yes 💖</button>
 <button id="noBtn" onmouseover="moveNo()">No 😢</button>
@@ -75,19 +71,18 @@ let yesSize = 18;
 let noCount = 0;
 
 let messages = [
-"Are you sure? 😢",
-"Think again... 🥺",
-"That didn’t feel right...",
-"I’m watching you 👀",
-"Why would you do this to me?",
-"This is getting awkward...",
-"The Yes button looks happier 🙂",
-"Just press Yes already!",
-"You’re running out of options 😏",
-"No is not really an option here",
-"Okay now you're just being difficult 😂",
-"Last warning!",
-"You belong on Team Yes ❤️"
+"Irteza, are you sure? 😢",
+"Think again… carefully.",
+"That didn’t feel right.",
+"I’m watching this decision very closely 👀",
+"The Yes button looks better, no?",
+"Why are you making this difficult?",
+"This is getting serious now.",
+"You’re running out of No energy 😏",
+"At this point, Yes is the only good option.",
+"Okay now you’re just being stubborn 😂",
+"Last chance, Irteza.",
+"You know what the right answer is ❤️"
 ];
 
 function moveNo() {
@@ -97,20 +92,18 @@ let noBtn = document.getElementById("noBtn");
 noBtn.style.left = x + "px";
 noBtn.style.top = y + "px";
 
-// Increase YES size
 yesSize += 8;
 document.getElementById("yesBtn").style.fontSize = yesSize + "px";
 
-// Change message
 if (noCount < messages.length) {
 document.getElementById("message").innerText = messages[noCount];
 noCount++;
 } else {
-document.getElementById("message").innerText = "You have no choice now 😌";
+document.getElementById("message").innerText = "No is no longer available 😌";
 }
 }
 
-// Floating hearts generator
+/* Floating hearts */
 setInterval(() => {
 let heart = document.createElement("div");
 heart.className = "heart";
@@ -127,9 +120,9 @@ heart.remove();
 function yesClicked() {
 document.body.innerHTML = `
 <h1 style="color:#ff3366; margin-top:100px;">
-Yayyyy! ❤️<br><br>
-I knew you’d choose this 😊<br>
-Best decision ever!
+Yay ❤️<br><br>
+I was really hoping you’d say yes, Irteza.<br><br>
+Now this day feels a little more special.
 </h1>
 `;
 }
